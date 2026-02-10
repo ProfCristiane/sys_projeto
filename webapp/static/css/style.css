@@ -1,0 +1,173 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+header, footer {
+    background-color: #3d7ab7;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 40px auto; /* centraliza */
+}
+
+
+h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+form p {
+    margin-bottom: 1rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+button {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #7c808d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+/* ===== MENU ===== */
+
+.navbar {
+    background-color: #1f2933;
+    padding: 0.6rem;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.submenu li a {
+    padding: 10px 15px;
+}
+
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu {
+    display: block;
+}
+/* ===== SUBMENU ===== */
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #f9fafb;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-top: 0.4rem;
+    border-radius: 4px;
+    min-width: 180px;
+}
+
+.submenu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+
+.submenu li a:hover {
+    background-color: white;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela th, .tabela td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+}
+
+.form-inline {
+    display: inline;
+    margin: 0;
+}
+
+.acoes-topo {
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 6px 20px;
+    background: #0066cc;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-sec {
+    background: #555;
+}

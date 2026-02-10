@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema de Projetos{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Cadastro de Projetos</h1>
+    <nav class="menu">
+    <ul>
+        <li><a href="{% url 'projetos:home' %}">Home</a></li>
+        
+        
+                <li><a href="{% url 'projetos:listar' %}">Listar Projetos</a></li>
+                <li><a href="{% url 'projetos:cadastrar' %}">Cadastrar Projeto</a></li>
+            <li><a href="{% url 'projetos:cadastrar' %}">Cadastrar Projeto</a></li>
+        </li>
+    </ul>
+</nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>© 2026 - Back-end com Python</p>
+</footer>
+
+</body>
+</html>

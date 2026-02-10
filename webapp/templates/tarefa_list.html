@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block title %}Tarefas do Projeto{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Tarefas do Projeto: {{ projeto.nome }}</h2>
+
+    <div class="acoes-topo">
+        <a href="{% url 'projetos:cadastrar_tarefa' projeto.id %}" class="btn">
+            + Adicionar Tarefa
+        </a>
+    </div>
+
+    {% if tarefas %}
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Tarefa</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarefa in tarefas %}
+                    <tr>
+                        <td>{{ tarefa.titulo }}</td>
+
+                        <td>
+                            {% if tarefa.concluida %}
+                                <span class="status concluida">Concluída</span>
+                            {% else %}
+                                <span class="status pendente">Pendente</span>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            <form method="post"
+                                action="{% url 'projetos:alterar_tarefa' tarefa.id %}"
+                                class="form-inline">
+                                {% csrf_token %}
+                                <button type="submit"
+                                        class="btn {% if tarefa.concluida %}btn-sec{% endif %}">
+                                    {% if tarefa.concluida %}
+                                        Reabrir
+                                    {% else %}
+                                        Concluir
+                                    {% endif %}
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhuma tarefa cadastrada para este projeto.</p>
+    {% endif %}
+</section>
+{% endblock %}

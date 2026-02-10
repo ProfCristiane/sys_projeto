@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block title %}Cadastro de Projeto{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Cadastrar Projeto</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Salvar Projeto</button>
+    </form>
+</section>
+{% endblock %}

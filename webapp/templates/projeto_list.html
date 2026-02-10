@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block title %}Lista de Projetos{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Projetos Cadastrados</h2>
+
+    {% if projetos %}
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Projeto</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for projeto in projetos %}
+                    <tr>
+                        <td>{{ projeto.nome }}</td>
+                        <td>{{ projeto.descricao}}</td>
+                        <td class="acoes">
+                            <a href="{% url 'projetos:listar_tarefas' projeto.id %}" class="btn btn-sec">
+                                Ver Tarefas
+                            </a>
+
+                            <a href="{% url 'projetos:cadastrar_tarefa' projeto.id %}" class="btn">
+                                + Tarefa
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum projeto cadastrado.</p>
+    {% endif %}
+</section>
+{% endblock %}
